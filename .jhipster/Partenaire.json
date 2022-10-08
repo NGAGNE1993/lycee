@@ -1,0 +1,57 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919113554",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "partenaire",
+  "fields": [
+    {
+      "fieldName": "denominationPartenaire",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "statauPartenaire",
+      "fieldType": "Provenance",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ENTREPRISE,ONG,ORGANISATION_SOCIALE,ORGANISATION_PROFESSIONNELLE,PATRONAT,APE,SYNDICAT,COLLECTIVITE_TERRITORIALE,SERVICE_DECONCENTRE,COOPERATION_DECENTRALISEE,AUTRES"
+    },
+    {
+      "fieldName": "autreCategorie",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "typeAppui",
+      "fieldType": "NaturePart",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "TECHNIQUE,FINANCIER,TECHNIQUEETFINANCIER,FORMATION,AUTRES"
+    },
+    {
+      "fieldName": "autreNature",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Partenaire",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomLycee",
+      "otherEntityName": "lyceesTechniques",
+      "otherEntityRelationshipName": "partenaire",
+      "relationshipName": "lyceesTechniques",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomPrenom",
+      "otherEntityName": "proviseur",
+      "otherEntityRelationshipName": "partenaire",
+      "relationshipName": "proviseur",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": false,
+  "service": "serviceImpl"
+}

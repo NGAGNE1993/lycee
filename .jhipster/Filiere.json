@@ -1,0 +1,120 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919113549",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "filiere",
+  "fields": [
+    {
+      "fieldName": "nomFiliere",
+      "fieldType": "Filieres",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "AGRICULTURE,ELEVAGE,MINESETCARRIERES,BATIMENTSETTRAVAUXPUBLICS,MECANIQUE,MENUISERIE,AGROALIMENTAIRE,ELECTROTECHNIQUE_ELECTRONIQUE_ENERGETIQUE,STRUCTUREMETALLIQUE,ECONOMIEETGESTION,COMMERCELOGISTIQUE,INFORMATIQUEETNUMERIQUE,SANTEBIOLOGIECHIMIE,AUTRE"
+    },
+    {
+      "fieldName": "nomAutre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomProgramme",
+      "fieldType": "SANTEBIOLOGIECHIMIE",
+      "fieldValues": "AGENT_DE_SANTE_COMMUNAUTAIRE,AGENT_DE_STERILISATION_EN_MILIEU_HOSPITALIER,ANALYSE_BIOLOGIQUE,AUXILIAIRE_AMBULANCIER,BRANCARDIER,DIETETIQUE_NUTRITION_BTS_APC,HYGIENE_SECURITE_ENVIRONNEMENT,SANTE_HYGIENE,TECHNICIEN_DE_SURFACE_EN_MILIEU_HOSPITALIER,AUTRE"
+    },
+    {
+      "fieldName": "autreAGR",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomProgrammeEl",
+      "fieldType": "ELEVAGE",
+      "fieldValues": "AVICULTURE,AUTRE"
+    },
+    {
+      "fieldName": "autreEL",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autreMIN",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autreBAT",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autreMECAN",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autreMENU",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autreAGRO",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autreELECTRO",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autreSTRUC",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autreEC",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autreCOM",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autreIN",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autreSAN",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autreProgramme",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Filiere",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "enseignant",
+      "otherEntityRelationshipName": "filiere",
+      "relationshipName": "enseignant",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "niveauxCalification",
+      "otherEntityRelationshipName": "filiere",
+      "relationshipName": "niveauCalification",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "nomLycee",
+      "otherEntityName": "lyceesTechniques",
+      "otherEntityRelationshipName": "filiere",
+      "relationshipName": "lyceesTechniques",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomPrenom",
+      "otherEntityName": "directeurEtude",
+      "otherEntityRelationshipName": "filiere",
+      "relationshipName": "directeur",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": false,
+  "service": "serviceImpl"
+}

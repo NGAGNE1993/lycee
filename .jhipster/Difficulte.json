@@ -1,0 +1,60 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919113555",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "difficulte",
+  "fields": [
+    {
+      "fieldName": "nature",
+      "fieldType": "NatureDif",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "TECHNIQUE,RH,PEDAGOGIQUE,SOCIAUX,ADMINISTRATIVE,FINANCIERE,AUTRES"
+    },
+    {
+      "fieldName": "autreNature",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "solution",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "observation",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Difficulte",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomLycee",
+      "otherEntityName": "lyceesTechniques",
+      "otherEntityRelationshipName": "difficulte",
+      "relationshipName": "lyceesTechniques",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomPrenom",
+      "otherEntityName": "proviseur",
+      "otherEntityRelationshipName": "difficulte",
+      "relationshipName": "proviseur",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": false,
+  "service": "serviceImpl"
+}

@@ -1,0 +1,47 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919113550",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "iventaire_des_matetiere",
+  "fields": [
+    {
+      "fieldName": "group",
+      "fieldType": "Group",
+      "fieldValues": "GROUP1,GROUP2"
+    },
+    {
+      "fieldName": "designationMembre",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "pvDinventaire",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "IventaireDesMatetiere",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomLycee",
+      "otherEntityName": "lyceesTechniques",
+      "otherEntityRelationshipName": "iventaireDesMatetiere",
+      "relationshipName": "lyceesTechniques",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomPrenom",
+      "otherEntityName": "comptableMatiere",
+      "otherEntityRelationshipName": "iventaireDesMatetiere",
+      "relationshipName": "comptableMatiere",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": false,
+  "service": "serviceImpl"
+}

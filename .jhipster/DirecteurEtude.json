@@ -1,0 +1,86 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919113605",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "directeur_etude",
+  "fields": [
+    {
+      "fieldName": "nomPrenom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DirecteurEtude",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "directeurEtude",
+      "ownerSide": true,
+      "relationshipName": "user",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "lyceesTechniques",
+      "otherEntityRelationshipName": "directeurEtude",
+      "ownerSide": true,
+      "relationshipName": "nomLycee",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "concours",
+      "otherEntityRelationshipName": "directeur",
+      "relationshipName": "concours",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "salle",
+      "otherEntityRelationshipName": "directeur",
+      "relationshipName": "salle",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "serie",
+      "otherEntityRelationshipName": "directeur",
+      "relationshipName": "serie",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "niveauxEtudes",
+      "otherEntityRelationshipName": "directeur",
+      "relationshipName": "niveau",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "filiere",
+      "otherEntityRelationshipName": "directeur",
+      "relationshipName": "filiere",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "niveauxCalification",
+      "otherEntityRelationshipName": "directeur",
+      "relationshipName": "niveauCalification",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "apprenant",
+      "otherEntityRelationshipName": "directeur",
+      "relationshipName": "apprenant",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "examen",
+      "otherEntityRelationshipName": "directeur",
+      "relationshipName": "examen",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": false,
+  "service": "serviceImpl"
+}

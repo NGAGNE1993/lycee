@@ -1,0 +1,63 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919113553",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "organe_gestion",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "TypeO",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "CONSEIL_ADMINISTRATION,CONSEIL_ETABLISSEMENT,CONSEIL_PEDAGOGIQUE,COMITE_GESTION,AUTRES"
+    },
+    {
+      "fieldName": "autreType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fonctionnel",
+      "fieldType": "Fonctionnment",
+      "fieldValues": "OUI,NON"
+    },
+    {
+      "fieldName": "activite",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateActivite",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "rapport",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "OrganeGestion",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomLycee",
+      "otherEntityName": "lyceesTechniques",
+      "otherEntityRelationshipName": "organe",
+      "relationshipName": "lyceesTechniques",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomPrenom",
+      "otherEntityName": "proviseur",
+      "otherEntityRelationshipName": "organe",
+      "relationshipName": "proviseur",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": false,
+  "service": "serviceImpl"
+}

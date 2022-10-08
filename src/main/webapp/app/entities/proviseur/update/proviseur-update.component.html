@@ -1,0 +1,79 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-proviseur-heading" data-cy="ProviseurCreateUpdateHeading"
+      style="font-weight: bold; text-align: center">
+        Proviseur
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <br />
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-7">
+            <br />
+
+            <div class="form-group">
+              <label class="form-label" for="field_nomLycee">Nom Lycée</label>
+              <select class="form-control" id="field_nomLycee" data-cy="nomLycee" name="nomLycee" formControlName="nomLycee">
+                <option [ngValue]="null"></option>
+                <option
+                  [ngValue]="
+                    lyceesTechniquesOption.id === editForm.get('nomLycee')!.value?.id ? editForm.get('nomLycee')!.value : lyceesTechniquesOption
+                  "
+                  *ngFor="let lyceesTechniquesOption of nomLyceesCollection; trackBy: trackLyceesTechniquesById"
+                >
+                  {{ lyceesTechniquesOption.id }}
+                </option>
+              </select>
+            </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_nomPrenom">Nom Prenom</label>
+          <input type="text" class="form-control" name="nomPrenom" id="field_nomPrenom" data-cy="nomPrenom" formControlName="nomPrenom" />
+          <div *ngIf="editForm.get('nomPrenom')!.invalid && (editForm.get('nomPrenom')!.dirty || editForm.get('nomPrenom')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nomPrenom')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_user">User</label>
+          <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption"
+              *ngFor="let userOption of usersSharedCollection; trackBy: trackUserById"
+            >
+              {{ userOption.login }}
+            </option>
+          </select>
+        </div>
+
+        
+        <br>
+      </div>
+    </div>
+      </div>
+      <br>
+ 
+
+      <div class="can-sav">
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

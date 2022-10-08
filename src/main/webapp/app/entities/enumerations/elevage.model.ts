@@ -1,0 +1,5 @@
+export enum ELEVAGE {
+  AVICULTURE = 'AVICULTURE',
+
+  AUTRE = 'AUTRE',
+}

@@ -1,0 +1,92 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919113604",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "proviseur",
+  "fields": [
+    {
+      "fieldName": "nomPrenom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Proviseur",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "proviseur",
+      "ownerSide": true,
+      "relationshipName": "user",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "lyceesTechniques",
+      "otherEntityRelationshipName": "proviseur",
+      "ownerSide": true,
+      "relationshipName": "nomLycee",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "personnelAdministratif",
+      "otherEntityRelationshipName": "proviseur",
+      "relationshipName": "personnelAdmiistratif",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "partenaire",
+      "otherEntityRelationshipName": "proviseur",
+      "relationshipName": "partenaire",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "besoin",
+      "otherEntityRelationshipName": "proviseur",
+      "relationshipName": "besoin",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "organeGestion",
+      "otherEntityRelationshipName": "proviseur",
+      "relationshipName": "organe",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "visite",
+      "otherEntityRelationshipName": "proviseur",
+      "relationshipName": "visite",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "difficulte",
+      "otherEntityRelationshipName": "proviseur",
+      "relationshipName": "difficulte",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "rapportRF",
+      "otherEntityRelationshipName": "proviseur",
+      "relationshipName": "rapportRF",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "enseignant",
+      "otherEntityRelationshipName": "proviseur",
+      "relationshipName": "enseignant",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "personnelAppui",
+      "otherEntityRelationshipName": "directeur",
+      "relationshipName": "personnelAppui",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": false,
+  "service": "serviceImpl"
+}

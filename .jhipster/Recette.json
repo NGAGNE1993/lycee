@@ -1,0 +1,61 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919113544",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "recette",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "TypeR",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "SUBVENTION_ETAT,RESSOURCES_GENEREES,DONS,PRESTATIONS_DIVERSES,AUTRES"
+    },
+    {
+      "fieldName": "autreRecette",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "typeRessource",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "montant",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Recette",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "depense",
+      "otherEntityRelationshipName": "recette",
+      "relationshipName": "depense",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomLycee",
+      "otherEntityName": "lyceesTechniques",
+      "otherEntityRelationshipName": "recette",
+      "relationshipName": "lyceesTechniques",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomPrenom",
+      "otherEntityName": "comptableFinancier",
+      "otherEntityRelationshipName": "recette",
+      "relationshipName": "comptableFinancier",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": false,
+  "service": "serviceImpl"
+}

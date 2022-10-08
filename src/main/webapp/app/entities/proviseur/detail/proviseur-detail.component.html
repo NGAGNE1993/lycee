@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="proviseur">
+      <h2 data-cy="proviseurDetailsHeading"><span>Proviseur</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ proviseur.id }}</span>
+        </dd>
+        <dt><span>Nom Prenom</span></dt>
+        <dd>
+          <span>{{ proviseur.nomPrenom }}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+          <span>{{ proviseur.user?.login }}</span>
+        </dd>
+        <dt><span>Nom Lycee</span></dt>
+        <dd>
+          <div *ngIf="proviseur.nomLycee">
+            <a [routerLink]="['/lycees-techniques', proviseur.nomLycee?.id, 'view']">{{ proviseur.nomLycee?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/proviseur', proviseur.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

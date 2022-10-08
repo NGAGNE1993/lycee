@@ -1,0 +1,54 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919113601",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "serie",
+  "fields": [
+    {
+      "fieldName": "nomSerie",
+      "fieldType": "Series",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "S1,S2,S3,S4,S5,STEG,T1,T2,F6,STIDD,STIMA,L1,L2,AUTRE"
+    },
+    {
+      "fieldName": "autreSerie",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Serie",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "enseignant",
+      "otherEntityRelationshipName": "serie",
+      "relationshipName": "enseignant",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "niveauxEtudes",
+      "otherEntityRelationshipName": "serie",
+      "relationshipName": "niveau",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "nomLycee",
+      "otherEntityName": "lyceesTechniques",
+      "otherEntityRelationshipName": "serie",
+      "relationshipName": "lyceesTechniques",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomPrenom",
+      "otherEntityName": "directeurEtude",
+      "otherEntityRelationshipName": "serie",
+      "relationshipName": "directeur",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": false,
+  "service": "serviceImpl"
+}

@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="rapportRF">
+      <h2 data-cy="rapportRFDetailsHeading"><span>Rapport</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <div class="row">
+        <div class="col-md-12">
+      <dl class="row-md jh-entity-details">
+        <!-- <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ rapportRF.id }}</span>
+        </dd> -->
+
+        <dt><span>Lycée technique</span></dt>
+        <dd>
+          <div *ngIf="rapportRF.lyceesTechniques">
+            <a [routerLink]="['/lycees-techniques', rapportRF.lyceesTechniques?.id, 'view']">{{ rapportRF.lyceesTechniques?.nomLycee }}</a>
+          </div>
+        </dd>
+        <dt><span>Type de raport</span></dt>
+        <dd>
+          <span>{{ rapportRF.typeRaport }}</span>
+        </dd>
+        <dt><span>Rentre</span></dt>
+        <dd>
+          <div *ngIf="rapportRF.rentre">
+            <a (click)="openFile(rapportRF.rentre, rapportRF.rentreContentType)">open</a>
+            {{ rapportRF.rentreContentType }}, {{ byteSize(rapportRF.rentre) }}
+          </div>
+        </dd>
+        <dt><span>Fin</span></dt>
+        <dd>
+          <div *ngIf="rapportRF.fin">
+            <a (click)="openFile(rapportRF.fin, rapportRF.finContentType)">open</a>
+            {{ rapportRF.finContentType }}, {{ byteSize(rapportRF.fin) }}
+          </div>
+        </dd>
+        
+        <!-- <dt><span>Proviseur</span></dt>
+        <dd>
+          <div *ngIf="rapportRF.proviseur">
+            <a [routerLink]="['/proviseur', rapportRF.proviseur?.id, 'view']">{{ rapportRF.proviseur?.nomPrenom }}</a>
+          </div>
+        </dd> -->
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/rapport-rf', rapportRF.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

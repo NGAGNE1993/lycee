@@ -1,0 +1,85 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919113600",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "salle",
+  "fields": [
+    {
+      "fieldName": "nombreSalleclasse",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nombreAteliers",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "specialiase",
+      "fieldType": "Specialise",
+      "fieldValues": "OUI,NON"
+    },
+    {
+      "fieldName": "nombreSalleSpecialise",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "justificationSalleSpe",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "cdi",
+      "fieldType": "Cdi",
+      "fieldValues": "OUI,NON"
+    },
+    {
+      "fieldName": "nombreCDI",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "justifiactifSalleCDI",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "gym",
+      "fieldType": "Gym",
+      "fieldValues": "OUI,NON"
+    },
+    {
+      "fieldName": "terrainSport",
+      "fieldType": "TerrainSport",
+      "fieldValues": "OUI,NON"
+    },
+    {
+      "fieldName": "autreSalle",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Salle",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomLycee",
+      "otherEntityName": "lyceesTechniques",
+      "otherEntityRelationshipName": "salle",
+      "relationshipName": "lyceesTechniques",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomPrenom",
+      "otherEntityName": "directeurEtude",
+      "otherEntityRelationshipName": "salle",
+      "relationshipName": "directeur",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": false,
+  "service": "serviceImpl"
+}

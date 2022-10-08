@@ -1,0 +1,49 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919113545",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "niveaux_etudes",
+  "fields": [
+    {
+      "fieldName": "nomNiveau",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "typeNiveau",
+      "fieldType": "TypeNiveau",
+      "fieldValues": "SECONDE,PREMIER,TERMINAL"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "NiveauxEtudes",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomLycee",
+      "otherEntityName": "lyceesTechniques",
+      "otherEntityRelationshipName": "niveauetude",
+      "relationshipName": "lyceesTechniques",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomPrenom",
+      "otherEntityName": "directeurEtude",
+      "otherEntityRelationshipName": "niveau",
+      "relationshipName": "directeur",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomSerie",
+      "otherEntityName": "serie",
+      "otherEntityRelationshipName": "niveau",
+      "relationshipName": "serie",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": false,
+  "service": "serviceImpl"
+}

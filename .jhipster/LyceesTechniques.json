@@ -1,0 +1,190 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919113558",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "lycees_techniques",
+  "fields": [
+    {
+      "fieldName": "nomLycee",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "LyceesTechniques",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "concours",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "concours",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "rapportRF",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "rapportRF",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "examen",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "examen",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "recette",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "recette",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "depense",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "depense",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "visite",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "visite",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "organeGestion",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "organe",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "mouvementMatiere",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "mouvementMatiere",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "partenaire",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "partenaire",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "besoin",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "besoin",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "personnelAdministratif",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "personnelAdmiistratif",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "personnelAppui",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "personnelAppui",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "serie",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "serie",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "filiere",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "filiere",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "salle",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "salle",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "apprenant",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "apprenant",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "enseignant",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "enseignant",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "difficulte",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "difficulte",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "niveauxCalification",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "niveaucalification",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "reformeMatiere",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "reformeMatiere",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "iventaireDesMatetiere",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "iventaireDesMatetiere",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "niveauxEtudes",
+      "otherEntityRelationshipName": "lyceesTechniques",
+      "relationshipName": "niveauetude",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "lyceeTechnique",
+      "otherEntityRelationshipName": "nomLycee",
+      "ownerSide": false,
+      "relationshipName": "lyceeTechnique",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "proviseur",
+      "otherEntityRelationshipName": "nomLycee",
+      "ownerSide": false,
+      "relationshipName": "proviseur",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "directeurEtude",
+      "otherEntityRelationshipName": "nomLycee",
+      "ownerSide": false,
+      "relationshipName": "directeurEtude",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "comptableFinancier",
+      "otherEntityRelationshipName": "nomLycee",
+      "ownerSide": false,
+      "relationshipName": "comptableFinancie",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "comptableMatiere",
+      "otherEntityRelationshipName": "nomLycee",
+      "ownerSide": false,
+      "relationshipName": "comptableMatiere",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": false,
+  "service": "serviceImpl"
+}

@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+  <div class="col-5">
+    <div *ngIf="examen">
+      <h2 data-cy="examenDetailsHeading" style="font-weight: bold"><span>Examen</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <div class="row">
+        <div class="col-md-12">
+      <dl class="row-md jh-entity-details">
+        <!-- <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ examen.id }}</span>
+        </dd> -->
+        <dt><span>Lycée technique</span></dt>
+            <dd>
+              <div *ngIf="examen.lyceesTechniques">
+                <a [routerLink]="['/lycees-techniques', examen.lyceesTechniques?.id, 'view']">{{ examen.lyceesTechniques?.nomLycee }}</a>
+              </div>
+            </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+          <span>{{ examen.type }}</span>
+        </dd>
+        <dt><span>Autres</span></dt>
+        <dd>
+          <span>{{ examen.autres }}</span>
+        </dd>
+        <dt><span>Nombre de réussi</span></dt>
+        <dd>
+          <span>{{ examen.nombrereussi }}</span>
+        </dd>
+        <dt><span>Nombre d'écheque</span></dt>
+        <dd>
+          <span>{{ examen.nombreEcheque }}</span>
+        </dd>
+        <dt><span>Nomre d'absent</span></dt>
+        <dd>
+          <span>{{ examen.nomreAbsent }}</span>
+        </dd>
+        
+        <!-- <dt><span>Directeur</span></dt>
+        <dd>
+          <div *ngIf="examen.directeur">
+            <a [routerLink]="['/directeur-etude', examen.directeur?.id, 'view']">{{ examen.directeur?.nomPrenom }}</a>
+          </div>
+        </dd> -->
+      </dl>
+    </div>
+  </div>
+  <br />
+  <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+    <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Retour</span>
+  </button>
+
+  <button type="button" [routerLink]="['/examen', examen.id, 'edit']" class="btn btn-primary">
+    <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Editer</span>
+  </button>
+</div>
+<br />
+</div>
+</div>

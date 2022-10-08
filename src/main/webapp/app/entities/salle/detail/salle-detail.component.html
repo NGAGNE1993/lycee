@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="salle">
+      <h2 data-cy="salleDetailsHeading" style="font-weight: bold"><span>Salle</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <div class="row">
+        <div class="col-md-12">
+      <dl class="row-md jh-entity-details">
+        <!-- <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ salle.id }}</span>
+        </dd> -->
+        <dt><span>Lycees Techniques</span></dt>
+        <dd>
+          <div *ngIf="salle.lyceesTechniques">
+            <a [routerLink]="['/lycees-techniques', salle.lyceesTechniques?.id, 'view']">{{ salle.lyceesTechniques?.nomLycee }}</a>
+          </div>
+        </dd>
+        <dt><span>Nombre Salleclasse</span></dt>
+        <dd>
+          <span>{{ salle.nombreSalleclasse }}</span>
+        </dd>
+        <dt><span>Nombre Ateliers</span></dt>
+        <dd>
+          <span>{{ salle.nombreAteliers }}</span>
+        </dd>
+        <dt><span>Specialiase</span></dt>
+        <dd>
+          <span>{{ salle.specialiase }}</span>
+        </dd>
+        <dt><span>Nombre Salle Specialise</span></dt>
+        <dd>
+          <span>{{ salle.nombreSalleSpecialise }}</span>
+        </dd>
+        <dt><span>Justification Salle Spe</span></dt>
+        <dd>
+          <span>{{ salle.justificationSalleSpe }}</span>
+        </dd>
+        <dt><span>Cdi</span></dt>
+        <dd>
+          <span>{{ salle.cdi }}</span>
+        </dd>
+        <dt><span>Nombre CDI</span></dt>
+        <dd>
+          <span>{{ salle.nombreCDI }}</span>
+        </dd>
+        <dt><span>Justifiactif Salle CDI</span></dt>
+        <dd>
+          <span>{{ salle.justifiactifSalleCDI }}</span>
+        </dd>
+        <dt><span>Gym</span></dt>
+        <dd>
+          <span>{{ salle.gym }}</span>
+        </dd>
+        <dt><span>Terrain Sport</span></dt>
+        <dd>
+          <span>{{ salle.terrainSport }}</span>
+        </dd>
+        <dt><span>Autre Salle</span></dt>
+        <dd>
+          <span>{{ salle.autreSalle }}</span>
+        </dd>
+        
+         <!-- <dt><span>Directeur</span></dt>
+        <dd>
+          <div *ngIf="salle.directeur">
+            <a [routerLink]="['/directeur-etude', salle.directeur?.id, 'view']">{{ salle.directeur?.nomPrenom }}</a>
+          </div>
+        </dd> -->
+      </dl>
+    </div>
+  </div>
+
+  <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+    <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Retour</span>
+  </button>
+
+  <button type="button" [routerLink]="['/salle', salle.id, 'edit']" class="btn btn-primary">
+    <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Editer</span>
+  </button>
+</div>
+</div>
+</div>
+

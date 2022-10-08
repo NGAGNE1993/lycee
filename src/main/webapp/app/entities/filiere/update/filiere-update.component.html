@@ -1,0 +1,238 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-filiere-heading" data-cy="FiliereCreateUpdateHeading" style="font-weight: bold; text-align: center">
+        Créer ou modifier une filiére
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <!-- <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div> -->
+
+        <br />
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <br />
+
+            <div class="form-group">
+              <label class="form-control-label" for="field_lyceesTechniques">Lycée technique</label>
+              <select
+                class="form-control"
+                id="field_lyceesTechniques"
+                data-cy="lyceesTechniques"
+                name="lyceesTechniques"
+                formControlName="lyceesTechniques"
+              >
+                <option [ngValue]="null"></option>
+                <option
+                  [ngValue]="
+                    lyceesTechniquesOption.id === editForm.get('lyceesTechniques')!.value?.id
+                      ? editForm.get('lyceesTechniques')!.value
+                      : lyceesTechniquesOption
+                  "
+                  *ngFor="let lyceesTechniquesOption of lyceesTechniquesSharedCollection; trackBy: trackLyceesTechniquesById"
+                >
+                  {{ lyceesTechniquesOption.nomLycee }}
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-control-label" for="field_nomFiliere">Nom de la filiére</label>
+              <select class="form-control" name="nomFiliere" formControlName="nomFiliere" id="field_nomFiliere" data-cy="nomFiliere">
+                <option [ngValue]="null"></option>
+                <option value="AGRICULTURE">Agriculture</option>
+                <option value="ELEVAGE">Elevage</option>
+                <option value="MINESETCARRIERES">Mines et carriéres</option>
+                <option value="BATIMENTSETTRAVAUXPUBLICS">Bâtiments et travaux publics
+                </option>
+                <option value="MECANIQUE">Mécanique</option>
+                <option value="MENUISERIE">Menuiserie</option>
+                <option value="AGROALIMENTAIRE">Agroqli,entqire</option>
+                <option value="ELECTROTECHNIQUE_ELECTRONIQUE_ENERGETIQUE">Electrotechnique électronique énergétique</option>
+                <option value="STRUCTUREMETALLIQUE">Struture métallique</option>
+                <option value="ECONOMIEETGESTION">Economie et gestion</option>
+                <option value="COMMERCELOGISTIQUE">Commerce logistique</option>
+                <option value="INFORMATIQUEETNUMERIQUE">Infor,qtiaue et numériaue</option>
+                <option value="SANTEBIOLOGIECHIMIE">Santé/Biologie/Chimie</option>
+                <option value="AUTRE">Autre</option>
+              </select>
+              <div *ngIf="editForm.get('nomFiliere')!.invalid && (editForm.get('nomFiliere')!.dirty || editForm.get('nomFiliere')!.touched)">
+                <small class="form-text text-danger" *ngIf="editForm.get('nomFiliere')?.errors?.required"> This field is required. </small>
+              </div>
+            </div>
+
+            <div *ngIf="editForm.value.nomFiliere === 'AUTRE'">
+              <div class="form-group">
+                <label class="form-control-label" for="field_nomAutre">Autre nom </label>
+                <input type="text" class="form-control" name="nomAutre" id="field_nomAutre" data-cy="nomAutre" formControlName="nomAutre" />
+                <div *ngIf="editForm.get('nomAutre')!.invalid && (editForm.get('nomAutre')!.dirty || editForm.get('nomAutre')!.touched)">
+                  <!-- <small class="form-text text-danger" *ngIf="editForm.get('nomAutre')?.errors?.required"> This field is required. </small> -->
+                </div>
+              </div>
+            </div>
+<br>
+        <!-- <div class="form-group">
+          <label class="form-label" for="field_nomProgramme">Nom Programme</label>
+          <select class="form-control" name="nomProgramme" formControlName="nomProgramme" id="field_nomProgramme" data-cy="nomProgramme">
+            <option [ngValue]="null"></option>
+            <option *ngFor="let sANTEBIOLOGIECHIMIE of sANTEBIOLOGIECHIMIEValues" [value]="sANTEBIOLOGIECHIMIE">sANTEBIOLOGIECHIMIE</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_autreAGR">Autre AGR</label>
+          <input type="text" class="form-control" name="autreAGR" id="field_autreAGR" data-cy="autreAGR" formControlName="autreAGR" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_nomProgrammeEl">Nom Programme El</label>
+          <select
+            class="form-control"
+            name="nomProgrammeEl"
+            formControlName="nomProgrammeEl"
+            id="field_nomProgrammeEl"
+            data-cy="nomProgrammeEl"
+          >
+            <option [ngValue]="null"></option>
+            <option *ngFor="let eLEVAGE of eLEVAGEValues" [value]="eLEVAGE">eLEVAGE</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_autreEL">Autre EL</label>
+          <input type="text" class="form-control" name="autreEL" id="field_autreEL" data-cy="autreEL" formControlName="autreEL" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_autreMIN">Autre MIN</label>
+          <input type="text" class="form-control" name="autreMIN" id="field_autreMIN" data-cy="autreMIN" formControlName="autreMIN" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_autreBAT">Autre BAT</label>
+          <input type="text" class="form-control" name="autreBAT" id="field_autreBAT" data-cy="autreBAT" formControlName="autreBAT" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_autreMECAN">Autre MECAN</label>
+          <input
+            type="text"
+            class="form-control"
+            name="autreMECAN"
+            id="field_autreMECAN"
+            data-cy="autreMECAN"
+            formControlName="autreMECAN"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_autreMENU">Autre MENU</label>
+          <input type="text" class="form-control" name="autreMENU" id="field_autreMENU" data-cy="autreMENU" formControlName="autreMENU" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_autreAGRO">Autre AGRO</label>
+          <input type="text" class="form-control" name="autreAGRO" id="field_autreAGRO" data-cy="autreAGRO" formControlName="autreAGRO" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_autreELECTRO">Autre ELECTRO</label>
+          <input
+            type="text"
+            class="form-control"
+            name="autreELECTRO"
+            id="field_autreELECTRO"
+            data-cy="autreELECTRO"
+            formControlName="autreELECTRO"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_autreSTRUC">Autre STRUC</label>
+          <input
+            type="text"
+            class="form-control"
+            name="autreSTRUC"
+            id="field_autreSTRUC"
+            data-cy="autreSTRUC"
+            formControlName="autreSTRUC"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_autreEC">Autre EC</label>
+          <input type="text" class="form-control" name="autreEC" id="field_autreEC" data-cy="autreEC" formControlName="autreEC" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_autreCOM">Autre COM</label>
+          <input type="text" class="form-control" name="autreCOM" id="field_autreCOM" data-cy="autreCOM" formControlName="autreCOM" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_autreIN">Autre IN</label>
+          <input type="text" class="form-control" name="autreIN" id="field_autreIN" data-cy="autreIN" formControlName="autreIN" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_autreSAN">Autre SAN</label>
+          <input type="text" class="form-control" name="autreSAN" id="field_autreSAN" data-cy="autreSAN" formControlName="autreSAN" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field_autreProgramme">Autre Programme</label>
+          <input
+            type="text"
+            class="form-control"
+            name="autreProgramme"
+            id="field_autreProgramme"
+            data-cy="autreProgramme"
+            formControlName="autreProgramme"
+          />
+        </div>
+
+      / -->
+
+         <!-- <div class="form-group">
+          <label class="form-control-label" for="field_directeur">Directeur</label>
+          <select class="form-control" id="field_directeur" data-cy="directeur" name="directeur" formControlName="directeur">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                directeurEtudeOption.id === editForm.get('directeur')!.value?.id ? editForm.get('directeur')!.value : directeurEtudeOption
+              "
+              *ngFor="let directeurEtudeOption of directeurEtudesSharedCollection; trackBy: trackDirecteurEtudeById"
+            >
+              {{ directeurEtudeOption.nomPrenom }}
+            </option>
+          </select>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="can-sav">
+    <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+      <fa-icon icon="ban"></fa-icon>&nbsp;<span>Annuler</span>
+    </button>
+
+    <button
+      type="submit"
+      id="save-entity"
+      data-cy="entityCreateSaveButton"
+      [disabled]="editForm.invalid || isSaving"
+      class="btn btn-primary"
+    >
+      <fa-icon icon="save"></fa-icon>&nbsp;<span>Sauvegarder</span>
+    </button>
+  </div>
+</form>
+<br />
+</div>
+</div>

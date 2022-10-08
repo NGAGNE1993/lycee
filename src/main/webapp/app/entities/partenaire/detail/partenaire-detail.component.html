@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="partenaire">
+      <h2 data-cy="partenaireDetailsHeading" style="font-weight: bold"><span>Partenaire</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <div class="row">
+        <div class="col-md-12">
+
+      <dl class="row-md jh-entity-details">
+        <!-- <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ partenaire.id }}</span>
+        </dd> -->
+        <dt><span>Lycée technique</span></dt>
+        <dd>
+          <div *ngIf="partenaire.lyceesTechniques">
+            <a [routerLink]="['/lycees-techniques', partenaire.lyceesTechniques?.id, 'view']">{{
+              partenaire.lyceesTechniques?.nomLycee
+            }}</a>
+          </div>
+        </dd>
+        <dt><span>Dénomination du partenaire</span></dt>
+        <dd>
+          <span>{{ partenaire.denominationPartenaire }}</span>
+        </dd>
+        <dt><span>Statau du partenaire</span></dt>
+        <dd>
+          <span>{{ partenaire.statauPartenaire }}</span>
+        </dd>
+        <dt><span>Autre categorie</span></dt>
+        <dd>
+          <span>{{ partenaire.autreCategorie }}</span>
+        </dd>
+        <dt><span>Type d'appui</span></dt>
+        <dd>
+          <span>{{ partenaire.typeAppui }}</span>
+        </dd>
+        <dt><span>Autre appui</span></dt>
+        <dd>
+          <span>{{ partenaire.autreNature }}</span>
+        </dd>
+        
+        <!-- <dt><span>Proviseur</span></dt>
+        <dd>
+          <div *ngIf="partenaire.proviseur">
+            <a [routerLink]="['/proviseur', partenaire.proviseur?.id, 'view']">{{ partenaire.proviseur?.nomPrenom }}</a>
+          </div>
+        </dd> -->
+      </dl>
+    </div>
+  </div>
+
+  <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+    <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Retour</span>
+  </button>
+
+  <button type="button" [routerLink]="['/partenaire', partenaire.id, 'edit']" class="btn btn-primary">
+    <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Editer</span>
+  </button>
+</div>
+</div>
+</div>

@@ -1,0 +1,137 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-rapport-rf-heading" data-cy="RapportRFCreateUpdateHeading" 
+      style="font-weight: bold; text-align: center">Créer ou modifier  un rapport </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <!-- <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div> -->
+
+        <br />
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <br />
+
+            <div class="form-group">
+              <label class="form-label" for="field_lyceesTechniques">Lycée technique</label>
+              <select
+                class="form-control"
+                id="field_lyceesTechniques"
+                data-cy="lyceesTechniques"
+                name="lyceesTechniques"
+                formControlName="lyceesTechniques"
+              >
+                <option [ngValue]="null"></option>
+                <option
+                  [ngValue]="
+                    lyceesTechniquesOption.id === editForm.get('lyceesTechniques')!.value?.id
+                      ? editForm.get('lyceesTechniques')!.value
+                      : lyceesTechniquesOption
+                  "
+                  *ngFor="let lyceesTechniquesOption of lyceesTechniquesSharedCollection; trackBy: trackLyceesTechniquesById"
+                >
+                  {{ lyceesTechniquesOption.nomLycee }}
+                </option>
+              </select>
+            </div>
+        <div class="form-group">
+          <label class="form-label" for="field_typeRaport">Type de raport</label>
+          <select class="form-control" name="typeRaport" formControlName="typeRaport" id="field_typeRaport" data-cy="typeRaport">
+            <option [ngValue]="null"></option>
+            <option value="RENTREE">RENTREE</option>
+            <option value="FIN">FIN</option>
+          </select>
+        </div>
+
+        <div *ngIf="editForm.value.typeRaport === 'RENTREE'">
+        <div class="form-group">
+          <label class="form-label" for="field_rentre">Rapportde rentrée</label>
+          <div>
+            <div *ngIf="editForm.get('rentre')!.value" class="form-text text-danger clearfix">
+              <a class="pull-start" (click)="openFile(editForm.get('rentre')!.value, editForm.get('rentreContentType')!.value)">open</a
+              ><br />
+              <span class="pull-start">{{ editForm.get('rentreContentType')!.value }}, {{ byteSize(editForm.get('rentre')!.value) }}</span>
+              <button
+                type="button"
+                (click)="editForm.patchValue({ rentre: null }); editForm.patchValue({ rentreContentType: null })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input type="file" id="file_rentre" data-cy="rentre" (change)="setFileData($event, 'rentre', false)" />
+          </div>
+          <input type="hidden" class="form-control" name="rentre" id="field_rentre" data-cy="rentre" formControlName="rentre" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="rentreContentType"
+            id="field_rentreContentType"
+            formControlName="rentreContentType"
+          />
+        </div>
+        </div>
+
+        <div *ngIf="editForm.value.typeRaport === 'FIN'">
+        <div class="form-group">
+          <label class="form-label" for="field_fin">Rqpport de fin d'année</label>
+          <div>
+            <div *ngIf="editForm.get('fin')!.value" class="form-text text-danger clearfix">
+              <a class="pull-start" (click)="openFile(editForm.get('fin')!.value, editForm.get('finContentType')!.value)">open</a><br />
+              <span class="pull-start">{{ editForm.get('finContentType')!.value }}, {{ byteSize(editForm.get('fin')!.value) }}</span>
+              <button
+                type="button"
+                (click)="editForm.patchValue({ fin: null }); editForm.patchValue({ finContentType: null })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input type="file" id="file_fin" data-cy="fin" (change)="setFileData($event, 'fin', false)" />
+          </div>
+          <input type="hidden" class="form-control" name="fin" id="field_fin" data-cy="fin" formControlName="fin" />
+          <input type="hidden" class="form-control" name="finContentType" id="field_finContentType" formControlName="finContentType" />
+        </div>
+        </div>
+<br>
+        <!-- <div class="row mb-3">
+          <label class="form-label" for="field_proviseur">Proviseur</label>
+          <select class="form-control" id="field_proviseur" data-cy="proviseur" name="proviseur" formControlName="proviseur">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="proviseurOption.id === editForm.get('proviseur')!.value?.id ? editForm.get('proviseur')!.value : proviseurOption"
+              *ngFor="let proviseurOption of proviseursSharedCollection; trackBy: trackProviseurById"
+            >
+              {{ proviseurOption.nomPrenom }}
+            </option>
+          </select>
+        </div> -->
+      </div>
+        </div>
+      </div>
+<br>
+      <div class="can-sav">
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Sauvegarder</span>
+        </button>
+      </div>
+      <br>
+    </form>
+  </div>
+</div>

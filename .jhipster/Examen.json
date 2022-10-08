@@ -1,0 +1,54 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919113548",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "examen",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "TypeExam",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "S1,S2,L1,L2,S3,S4,S5,STEG,T1,T2,F6,STIDD,STIMA,CAP,BEP,BT,BTS,CPS,AUTRE"
+    },
+    {
+      "fieldName": "autres",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nombrereussi",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "nombreEcheque",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "nomreAbsent",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Examen",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomLycee",
+      "otherEntityName": "lyceesTechniques",
+      "otherEntityRelationshipName": "examen",
+      "relationshipName": "lyceesTechniques",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomPrenom",
+      "otherEntityName": "directeurEtude",
+      "otherEntityRelationshipName": "examen",
+      "relationshipName": "directeur",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": false,
+  "service": "serviceImpl"
+}

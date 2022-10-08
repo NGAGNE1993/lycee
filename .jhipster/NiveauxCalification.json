@@ -1,0 +1,49 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919113546",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "niveaux_calification",
+  "fields": [
+    {
+      "fieldName": "niveauCalification",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "typeNiveauCalification",
+      "fieldType": "NiveauQualif",
+      "fieldValues": "ATTESTE,CPS,CAP,BEP,BTS,ChefdeChantier,CQP,AUTRE"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "NiveauxCalification",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nomLycee",
+      "otherEntityName": "lyceesTechniques",
+      "otherEntityRelationshipName": "niveaucalification",
+      "relationshipName": "lyceesTechniques",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomPrenom",
+      "otherEntityName": "directeurEtude",
+      "otherEntityRelationshipName": "niveauCalification",
+      "relationshipName": "directeur",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomFiliere",
+      "otherEntityName": "filiere",
+      "otherEntityRelationshipName": "niveauCalification",
+      "relationshipName": "filiere",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": false,
+  "service": "serviceImpl"
+}

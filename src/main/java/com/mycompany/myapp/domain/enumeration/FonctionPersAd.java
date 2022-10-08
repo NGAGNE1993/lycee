@@ -1,0 +1,23 @@
+package com.mycompany.myapp.domain.enumeration;
+
+/**
+ * The FonctionPersAd enumeration.
+ */
+public enum FonctionPersAd {
+    PROVISEUR,
+    SECRETAIRE,
+    DIRECTEURDESETUDES,
+    AUDITEUR_INTERNE,
+    CHEF_DESTRAVAUX,
+    COMPTABLE_DESMATIERES,
+    INTENDANT,
+    RESPONSABLE_CELLULE_PEDAGOGIQUE,
+    SURVEIILLANT,
+    SURVEILLANT_SIMPLE,
+    INFIRMIER,
+    COMPTABLE,
+    ASSISTANTE_SOCIAL,
+    ANIMATEUR_CULTUREL,
+    BIBLIOTHECAIRE,
+    AUTRE,
+}
